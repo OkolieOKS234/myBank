@@ -1,5 +1,6 @@
 import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
+
 actor myBank{
 var currentValue = 1200;
 
@@ -13,8 +14,11 @@ Debug.print(debug_show(currentValue));
 
 //this is how to create a function
 public func topUp(amount: Nat){
-  currentValue +=amount;
+  
+ currentValue +=amount;
   Debug.print(debug_show(currentValue));
+  
+ 
 }
 ;
 //Challenge 
@@ -22,8 +26,14 @@ public func topUp(amount: Nat){
 //decrease the current value by the amount
 
 public func withdraw(withdrawAmount: Nat){
+  let tempValue: Int = currentValue - withdrawAmount;
+  if(tempValue >=0){
   currentValue -=withdrawAmount;
   Debug.print(debug_show(currentValue))
 }
+else{
+  Debug.print("Unfortunately your balance is low")
+ }
 
+}
 }
