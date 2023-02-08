@@ -2,11 +2,11 @@ import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
 
 actor myBank{
-var currentValue = 1200;
+stable var currentValue: Nat = 1200;
 
 
-currentValue:=200;
 Debug.print(debug_show(currentValue));
+Debug.print("Hello you are welcome");
  
 // To create a function in Motoko
 //You need to add a modifier called public
@@ -34,6 +34,10 @@ public func withdraw(withdrawAmount: Nat){
 else{
   Debug.print("Unfortunately your balance is low")
  }
+};
 
+// A query call
+public query func checkBalance(): async Nat {
+return currentValue;
 }
 }
