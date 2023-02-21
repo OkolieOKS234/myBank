@@ -4,9 +4,10 @@ import Time "mo:base/Time";
 import Float "mo:base/Float"
 
 actor myBank{
-stable var currentValue: Float= 1200;
+stable var currentValue: Float = 200;
+currentValue :=300;
 stable var startTime = Time.now();
-
+startTime := Time.now();
 Debug.print(debug_show(startTime)); 
 
 Debug.print(debug_show(currentValue));
@@ -52,7 +53,7 @@ public func compound(){
   let  currentTime = Time.now();
   let timeElapsedNS = currentTime - startTime;
   let timeElapsedS = timeElapsedNS/1000000000;
-  currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS));
+  currentValue := currentValue * (20 ** Float.fromInt(timeElapsedS));
 // Resetting the value of startTime
 startTime:= currentTime;
 
