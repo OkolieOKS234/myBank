@@ -53,7 +53,7 @@ public func compound(){
   let  currentTime = Time.now();
   let timeElapsedNS = currentTime - startTime;
   let timeElapsedS = timeElapsedNS/1000000000;
-  currentValue := currentValue * (20 ** Float.fromInt(timeElapsedS));
+  currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS));
 // Resetting the value of startTime
 startTime:= currentTime;
 
